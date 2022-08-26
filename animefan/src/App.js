@@ -1,61 +1,73 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import Header from './components/Header';
-import Sidebar from './components/SideBar';
+import SideBar from './components/SideBar';
 import Content from './components/Content';
 
-function App(){
-  const [animeList, SetAnimeList] = useState([]);
-  const [topAnime, SetTopAnime] = useState([]);
-  const [search, SetSearch] = useState("");
-  const [gRecs, SetGRecs] = useState([]);
+function App() {
+	const [animeList, SetAnimeList] = useState([]);
+	const [topAnime, SetTopAnime] = useState([]);
+  const [grecs, SetGRecs] = useState([]);
+	const [search, SetSearch] = useState("");
 
-  const GetTopAnime = async()=>{
-      const temp = await fetch(`https://api.jikan.moe/v4/top/anime/tv/bypopularity`)
-        .then(res => res.json());
+	const GetTopAnime = async () => {
+		const temp = await fetch(`https://api.jikan.moe/v4/top/anime`)
+			.then(res => res.json());
 
-        SetTopAnime(temp.top.slice(0,5));
-  }
+    SetTopAnime(temp.data.slice(0,5));
+		console.log(temp.data)
+	}
 
-  const GetGRecs = async() =>{
-    const fb = await fetch(`https://api.jikan.moe/v4/anime/38680/Fruits_Basket_1st_Season`)
-      .then(res => res.json());
-      SetGRecs(fb);
-  }
+	const HandleSearch = e => {
+		e.preventDefault();
 
-  const GetAnimeList = async(query)=>{
-    const temp = await fetch(`https://api.jikan.moe/v4/anime?q=${query}&limit=15`)
-      .then(res => res.json());
+		FetchAnime(search);
+	}
 
-      SetAnimeList(temp.results);
-  }
+  const GetGRecs = async()=> {
 
-
-  const CompleteSearch = e =>{
-    e.preventDefault();
-    GetAnimeList(search);
-  }
-
-  useEffect(() =>{
-    GetTopAnime();
-    GetGRecs();
-  } ,[]);
-
-  return (
-      <div className='App'>
-        <Header />
-        <div className='content-wrap'>
-          <Sidebar
-            topAnime={topAnime}
-            gRecs={gRecs}
-            />
-          <Content
-            CompleteSearch = {CompleteSearch}
-            search={search}
-            SetSearch={SetSearch}
-            animeList={animeList}/>
-        </div>
-      </div>
-  )
+   const temp = await Promise.all([
+    fetch(`https://api.jikan.moe/v4/anime/1254`).then(res=>res.json()), 
+    fetch(`https://api.jikan.moe/v4/anime/232`).then(res=>res.json()),
+    fetch(`https://api.jikan.moe/v4/anime/38680`).then(res=>res.json()),
+    fetch(`https://api.jikan.moe/v4/anime/32729`).then(res=>res.json())
+  ]);
   
+    SetGRecs(temp);
+    console.log(temp)
+  }
+
+	const FetchAnime = async (query) => {
+		const temp = await fetch(`https://api.jikan.moe/v3/search/anime?q=${query}&order_by=title&sort=asc&limit=10`)
+			.then(res => res.json());
+
+		SetAnimeList(temp.results);
+	}
+
+	useEffect(() => {
+		GetTopAnime();
+
+	}, []);
+
+  useEffect(() => {
+
+    GetGRecs();
+	}, []);
+	
+	return (
+		<div className="App">
+			<Header />
+			<div className="content-wrap">
+				<SideBar 
+					topAnime={topAnime}
+          grecs={grecs} />
+				<Content
+					HandleSearch={HandleSearch}
+					search={search}
+					SetSearch={SetSearch}
+					animeList={animeList} />
+			</div>
+		</div>
+	);
 }
+
 export default App;

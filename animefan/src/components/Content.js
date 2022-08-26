@@ -1,6 +1,5 @@
 import React from 'react';
 import animecard from '../helpers/animecard';
-
 function Content(sqrs){
     return (
         <main>
