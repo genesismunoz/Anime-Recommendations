@@ -1,24 +1,30 @@
 import React from 'react';
-import animecard from '../helpers/animecard';
+import Animecard from '../helpers/Animecard';
+import Add from '../helpers/Add';
+
+
+
 function Content(sqrs){
     return (
-        <main>
+        <main className='main'>
             <div className='main-head'>
                 <form className='searchbox' onSubmit={sqrs.HandleSearch}>
                     <input 
                         type="search" 
-                        placeholder='Search for an anime'
+                        placeholder='Search for an anime...'
                         required
                         value={sqrs.search}
                         onChange ={e => sqrs.SetSearch(e.target.value)}/>
                 </form>
             </div>
-
-            <div className='anime-list'>
+            <div className='animelist'>
                 {sqrs.animeList.map(anime => (
-                    <animecard
+                    <Animecard
                         anime={anime}
-                        key={anime.mal_id}/>
+                        key={anime.mal_id}      
+                        animecomponent={Add}
+                    />
+                 
                 ))}
             </div>
         </main>

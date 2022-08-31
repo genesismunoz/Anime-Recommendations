@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Fontdiner+Swanky&display=swap');
+*{
+    padding: 0; 
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Fontdiner+Swanky&family=Kanit:wght@300&display=swap');
+
+.App{
+    background-image: linear-gradient(#ffc897, #d7bcfd);
+}
+
+
+.title {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: #2946BF;
+    font-size: 27px;
+    font-family:'Fontdiner Swanky', cursive;
+    justify-content: center;
+    text-align: center;
+ 
+
+}
+
+.content-wrap {
+    display: flex;
+}
+
+.content-wrap aside{
+    flex: 1 1 250px;
+    max-width: 250px;
+    padding-right: 16px;
+}
+.content-wrap aside nav{
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.content-wrap .tops{
+    color:#fc5f22;
+    font-size: 24px;
+    font-family: 'Kanit', sans-serif;
+    margin-bottom: 16px;
+}
+
+.content-wrap .listops{
+    display: block;
+    padding: 8px 16px;
+    text-align: left;
+
+    color: #fc5f22;
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    font-family: 'Kanit', sans-serif;
+
+    background-color: #eee;
+    border-radius: 999px;
+    text-decoration: none;
+
+    transition: 0.4s;
+}
+
+.listops:hover{
+    background-color: #2946BF;
+    color:#fc5f22;
+}
+
+.content-wrap .grecs {
+    color:#fc5f22;
+    font-size: 24px;
+    font-family: 'Kanit', sans-serif;
+    margin-bottom: 16px;
+}
+
+.content-wrap .mylist {
+    color:#fc5f22;
+    font-size: 24px;
+    font-family: 'Kanit', sans-serif;
+    margin-bottom: 16px;
+}
+
+.content-wrap .nav a{
+    display: block;
+    padding: 8px 16px;
+    text-align: left;
+
+    color: #fc5f22;
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    font-family: 'Kanit', sans-serif;
+
+    background-color: #eee;
+    border-radius: 999px;
+    text-decoration: none;
+
+    transition: 0.4s;
+}
+
+
+.nav a:hover{
+    background-color: #2946BF;
+    color:#fc5f22
+}
+
+.main{
+    flex:1 1 0%;
+    padding: 0px 16px;
+}
+
+
+.main .main-head{
+    display: flex;
+    justify-content: flex-end;
+ 
+}
+
+
+.main .main-head .searchbox{
+    display: flex;
+    justify-content: flex-end;
+    flex: 1 1 0%;
+}
+
+.main .searchbox input{
+    appearance: none;
+    background: none;
+    outline: none;
+    border: none;
+
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    padding: 16px;
+    border-radius: 999px;
+    background-color: #eee;
+
+    transition: 0.4s;
+}
+
+.main input::placeholder{
+    color:#ff6c92;
+    font-family:'Kanit', sans-serif ;
+    font-weight: 800;
+}
+
+.main input:focus , .main input:valid{
+    background-color: #2946BF;
+    color:#ff6c92;
+    font-weight: bold;
+}
+
+
+.animelist{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 32px;
+    margin: 32px -8px 0px;
+}
+
+.animelist .animecard {
+    flex: 1 1 33%;
+    max-width: 33%;
+    padding: 16px 8px; 
+}
+
+.animecard figure{
+    display: block;
+    margin-bottom: 16px;
+    
+}
+
+
+.animecard{
+    background-color: #eee;
+    border-radius: 90px;
+    display: block;
+    margin-bottom: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+
+.animecard a{
+    text-decoration: none;
+    color: #2946BF;
+    font-family:'Kanit', sans-serif ;
+    text-align:center;
+    background-color: white;
+
+}
+.animecard .image{
+    display: block;
+	max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15);
+    transition: 0.04s;
+    align-items: center;
+
+    
+}
+
+.animecard .ac{
+    position: relative;
+}
+
+
+.animecard .overlay{
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    height: 100%;
+    padding: 1rem;
+    background-color: rgb(255, 108, 146, 0.8);
+    border-radius: 10rem 5rem 5rem 5rem;
+    opacity: 0;
+    align-items: center;
+}
+
+
+.animecard .atitle{
+    color: #2946BF;
+    font-weight: bold;
+    font-family:'Kanit', sans-serif ;
+    text-align: center;
+    
+}
+.overlay h4{
+    margin-top: 30px;
+    
+}
+.synopsis{
+    text-align: justify;
+    width: auto;
+    height: 70%;
+    margin: 0 auto;
+    padding: 1rem;
+    overflow: auto;
+}
+
+.animecard:hover  .overlay{
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+.addlist{
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
+    padding: 0.5rem;
+    background-color: rgb(215, 188, 253, 0.9);
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 10px;
+}
