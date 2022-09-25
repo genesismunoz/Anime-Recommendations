@@ -5,7 +5,7 @@ import SideBar from '../components/SideBar';
 
 function Animecard({anime, animecomponent}){
     // button for add to list
-    const AddToList = animecomponent;
+
     const here = () =>{
         return console.log('here!')
     }
@@ -33,7 +33,7 @@ function Animecard({anime, animecomponent}){
                             <div className='synopsis' >
                                 <p> <br></br>{anime.synopsis}</p>
                             </div>
-                            <AddToList/>
+                           
                     </div>
             </a>
           

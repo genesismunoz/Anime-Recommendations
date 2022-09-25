@@ -50,17 +50,6 @@ function SideBar({topAnime, myanimelist}){
                         rel ="noreferrer">
                         Orange
                     </a>
-                <h3 className='mylist'>My list</h3>
-                    {/* {myanimelist.map(anime => (
-                        <a 
-                            className='listops'
-                            href={anime.url}
-                            target="_blank"
-                            key={anime.mal_id}
-                            rel ="noreferrer">
-                                {anime.title}
-                            </a>
-                    ))} */}
 
             </nav>
         </aside>

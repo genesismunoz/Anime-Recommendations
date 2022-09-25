@@ -1,6 +1,6 @@
 import React from 'react';
 import Animecard from '../helpers/Animecard';
-import Add from '../helpers/Add';
+
 
 
 
@@ -22,7 +22,6 @@ function Content(sqrs){
                     <Animecard
                         anime={anime}
                         key={anime.mal_id}      
-                        animecomponent={Add}
                     />
                  
                 ))}
